@@ -9,11 +9,37 @@
 import Foundation
 
 class Menu {
-    var currentMenuWindow: MenuType = .Dinner
-    var Items = [Item]()
+    var currentMenuWindow = MenuType.Dinner.rawValue
+    var Apps = [Item]()
+    var Entre = [Item]()
+    var Dessert = [Item]()
+    var Drinks = [Item]()
+    
+    init() {
+        
+    }
     
     func GetItemsForMenu() {
-        Items = SQLLiteHelper.GetCurrentMenu(currentMenuWindow)
+        for item in SQLhelper.GetItems() {
+            if item.Menues & currentMenuWindow == currentMenuWindow {
+                switch item.Type {
+                    case .Apps:
+                        Apps.append(item)
+                        break
+                    case .Entre:
+                        Entre.append(item)
+                        break
+                    case .Dessert:
+                        Dessert.append(item)
+                        break
+                    case .Drinks:
+                        Drinks.append(item)
+                        break
+                    default:
+                        break
+                }
+            }
+        }
     }
 }
 

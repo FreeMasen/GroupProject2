@@ -18,7 +18,7 @@ class Order {
     }
 
     func addItem(item: Item) {
-        
+        Items.append(item)
     }
     
     func removeItemWithId(id: Int) {

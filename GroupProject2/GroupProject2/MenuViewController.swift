@@ -12,15 +12,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var menuTableView: UITableView!
     
-    
-    var items = ["Chef's Salad","Chocolate Milk Shake","Super Burger"]
-    var descriptions = ["You'll have to ask the chef. He's on break.","Mostly milk","Instead of buns, you get two mini pizzas!"]
-    var prices = ["7.95","5.00","12.95"]
-    var photos = [UIImage()]
+    let menu = Menu()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        menu.GetItemsForMenu()
         // Do any additional setup after loading the view.
     }
 
@@ -29,16 +25,67 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Apps"
+        case 1:
+            return "Entres"
+        case 2:
+            return "Desserts"
+        case 3:
+            return "Drinks"
+        default:
+            return nil
+        }
+
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 4
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        switch section {
+        case 0:
+            return menu.Apps.count
+        case 1:
+            return menu.Entre.count
+        case 2:
+            return menu.Dessert.count
+        case 3:
+            return menu.Drinks.count
+        default:
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.menuTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MenuItemCell
-        
-        cell.item.text = items[indexPath.row]
-        cell.desc.text = descriptions[indexPath.row]
-        cell.price.text = prices[indexPath.row]
+        switch indexPath.section {
+            case 0:
+                cell.item.text = menu.Apps[indexPath.row].Name
+                cell.desc.text = menu.Apps[indexPath.row].Desc
+                cell.price.text = String(format:"$%.2f", menu.Apps[indexPath.row].Price)
+                break
+            case 1:
+            cell.item.text = menu.Entre[indexPath.row].Name
+            cell.desc.text = menu.Entre[indexPath.row].Desc
+            cell.price.text = String(format:"$%.2f", menu.Entre[indexPath.row].Price)
+            break
+            case 2:
+            cell.item.text = menu.Dessert[indexPath.row].Name
+            cell.desc.text = menu.Dessert[indexPath.row].Desc
+            cell.price.text = String(format:"$%.2f", menu.Dessert[indexPath.row].Price)
+            break
+            case 3:
+            cell.item.text = menu.Drinks[indexPath.row].Name
+            cell.desc.text = menu.Drinks[indexPath.row].Desc
+            cell.price.text = String(format:"$%.2f", menu.Drinks[indexPath.row].Price)
+            break
+        default: break
+        }
+
         return cell
     }
     
