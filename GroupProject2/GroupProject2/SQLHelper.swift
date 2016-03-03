@@ -30,7 +30,6 @@ class SQLhelper {
             fillSeedData(db)
             do {
                 for row in try db.prepare(MenuTable) {
-                    print(row)
                     let id = row[Id]
                     let name = row[Name]
                     let price = row[Price]
@@ -92,22 +91,6 @@ class SQLhelper {
         }
 
     }
-    
-//    enum MenuType: Int {
-//        case Nothing =      0
-//        case Breakfast =    1
-//        case Lunch =        2
-//        case HappyHour =    4
-//        case Dinner =       8
-//    }
-//    
-//    enum ItemType: Int {
-//        case Nothing =      0
-//        case Apps =         1
-//        case Entre =        2
-//        case Dessert =      4
-//        case Drinks =       8
-//    }
     
     private static func ensureTableExisits(db: Connection) {
         do {

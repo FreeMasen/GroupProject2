@@ -12,21 +12,6 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let menu = Menu()
-        menu.GetItemsForMenu()
-        for a in menu.Apps {
-            print(a.Name)
-        }
-        for e in menu.Entre {
-            print(e.Name)
-        }
-        for d in menu.Dessert {
-            print(d.Name)
-        }
-        for dr in menu.Drinks {
-            print(dr.Name)
-        }
-
         // Do any additional setup after loading the view.
     }
     
