@@ -9,15 +9,19 @@
 import Foundation
 
 class Menu {
-    var currentMenuWindow: UInt8 = MenuType.Dinner.rawValue | MenuType.HappyHour.rawValue
+    var currentMenuWindow: UInt8 = MenuType.Dinner.rawValue
     var Apps = [Item]()
     var Entre = [Item]()
     var Dessert = [Item]()
     var Drinks = [Item]()
     
+    init() {
+        
+    }
+    
     func GetItemsForMenu() {
         for item in SQLhelper.GetItems() {
-            if item.Menues == currentMenuWindow {
+            if item.Menues & currentMenuWindow == currentMenuWindow {
                 switch item.Type {
                 case .Apps:
                     Apps.append(item)

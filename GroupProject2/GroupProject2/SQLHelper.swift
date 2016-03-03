@@ -11,15 +11,15 @@ import SQLite
 
 class SQLhelper {
     
-    static let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-    static let connectionString = "\(documentDir)/GroupProject2.db"
-    static let MenuTable = SQLite.Table("MenuTable")
-    static let Id = Expression<Int>("ID")
-    static let Name = Expression<String>("Name")
-    static let Price = Expression<Double>("Price")
-    static let Desc = Expression<String>("Desc")
-    static let Menues = Expression<Int>("Menues")
-    static let Type = Expression<Int>("Type")
+    private static let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    private static let connectionString = "\(documentDir)/GroupProject2.db"
+    private static let MenuTable = SQLite.Table("MenuTable")
+    private static let Id = Expression<Int>("ID")
+    private static let Name = Expression<String>("Name")
+    private static let Price = Expression<Double>("Price")
+    private static let Desc = Expression<String>("Desc")
+    private static let Menues = Expression<Int>("Menues")
+    private static let Type = Expression<Int>("Type")
     
     static func GetItems() -> [Item] {
         var items = [Item]()
@@ -50,7 +50,7 @@ class SQLhelper {
         return items
     }
     
-    static func clearSeedData() {
+    private static func clearSeedData() {
         let fm = NSFileManager.defaultManager()
         do {
             try fm.removeItemAtPath(connectionString)
@@ -59,7 +59,7 @@ class SQLhelper {
         }
     }
     
-    static func fillSeedData(db: Connection) {
+    private static func fillSeedData(db: Connection) {
         do {
             try db.run( MenuTable.insert(Name <- "Bread", Price <- 1.99, Desc <- "Sliced bagette and butter", Menues <- 15, Type <- 1) )
         } catch {
@@ -109,7 +109,7 @@ class SQLhelper {
 //        case Drinks =       8
 //    }
     
-    static func ensureTableExisits(db: Connection) {
+    private static func ensureTableExisits(db: Connection) {
         do {
         try db.run(MenuTable.create { t in
             t.column(Id, primaryKey: true)
