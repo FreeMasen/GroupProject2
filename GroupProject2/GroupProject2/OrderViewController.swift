@@ -15,6 +15,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableTextField: UITextField!
     @IBOutlet weak var partySizeTextField: UITextField!
     @IBOutlet weak var newOrderButton: UIButton!
+    @IBOutlet weak var serverTextField: UITextField!
     
     
     var items = []
@@ -47,10 +48,17 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func getTable(sender: UITextField) {
+        
     }
     
     @IBAction func getPartySize(sender: UITextField) {
+        
     }
+    
+    @IBAction func getServer(sender: UITextField) {
+        
+    }
+    
 
     
 
