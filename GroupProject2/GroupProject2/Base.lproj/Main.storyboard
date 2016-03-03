@@ -153,18 +153,99 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-Ks-wep">
-                                <rect key="frame" x="250" y="92" width="101" height="26"/>
+                                <rect key="frame" x="250" y="92" width="101" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y04-Dp-xrf">
+                                <rect key="frame" x="119" y="265" width="363" height="67"/>
+                                <color key="backgroundColor" white="0.8509070889" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="363" id="0Ma-d9-1Pq"/>
+                                    <constraint firstAttribute="width" secondItem="y04-Dp-xrf" secondAttribute="height" multiplier="363:67" id="ish-px-qQn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="R1s-8Z-0qu" id="Rft-a9-5VM"/>
+                                    <outlet property="delegate" destination="R1s-8Z-0qu" id="dDs-Ir-8t7"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-lD-FDN">
+                                <rect key="frame" x="119" y="376.5" width="363" height="67"/>
+                                <color key="backgroundColor" white="0.84836409400000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="363" id="3Ux-2P-RFx"/>
+                                    <constraint firstAttribute="width" secondItem="n2K-lD-FDN" secondAttribute="height" multiplier="363:67" id="Iy0-5Q-sIq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="R1s-8Z-0qu" id="mmi-nA-Psr"/>
+                                    <outlet property="delegate" destination="R1s-8Z-0qu" id="p7h-Xq-Fkv"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnq-xd-fRZ">
+                                <rect key="frame" x="276" y="124.5" width="49" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appetizers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26e-rC-yTH">
+                                <rect key="frame" x="259.5" y="235.5" width="82.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Course" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJw-mF-lvP">
+                                <rect key="frame" x="252" y="347.5" width="96" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBr-qS-mfs">
+                                <rect key="frame" x="289" y="472" width="22" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="addOrderToTable:" destination="R1s-8Z-0qu" eventType="touchUpInside" id="PHe-SK-nwX"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0M-sR-Hc4">
+                                <rect key="frame" x="119" y="153" width="363" height="67"/>
+                                <color key="backgroundColor" white="0.84836409400000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="363" id="YRe-fd-SnR"/>
+                                    <constraint firstAttribute="width" secondItem="A0M-sR-Hc4" secondAttribute="height" multiplier="363:67" id="qIx-7b-BZp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="R1s-8Z-0qu" id="nWE-0o-Qpg"/>
+                                    <outlet property="delegate" destination="R1s-8Z-0qu" id="Rc7-ji-Yk0"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="A0M-sR-Hc4" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="009-d2-vBd"/>
+                            <constraint firstItem="NJw-mF-lvP" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="62w-IL-aOf"/>
+                            <constraint firstItem="n2K-lD-FDN" firstAttribute="top" secondItem="y04-Dp-xrf" secondAttribute="bottom" constant="45" id="BeK-Cb-Lel"/>
                             <constraint firstItem="Kw3-Ks-wep" firstAttribute="top" secondItem="Tae-HG-lWL" secondAttribute="bottom" constant="28" id="Hlh-xQ-wd9"/>
+                            <constraint firstItem="A0M-sR-Hc4" firstAttribute="top" secondItem="Kw3-Ks-wep" secondAttribute="bottom" constant="36" id="Kf6-cI-AEY"/>
+                            <constraint firstItem="26e-rC-yTH" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="VKp-zw-AaD"/>
+                            <constraint firstItem="y04-Dp-xrf" firstAttribute="top" secondItem="26e-rC-yTH" secondAttribute="bottom" constant="8.5" id="ZfS-sB-tyC"/>
+                            <constraint firstItem="bBr-qS-mfs" firstAttribute="top" secondItem="n2K-lD-FDN" secondAttribute="bottom" constant="28.5" id="awu-6A-qdW"/>
+                            <constraint firstItem="y04-Dp-xrf" firstAttribute="top" secondItem="A0M-sR-Hc4" secondAttribute="bottom" constant="45" id="bXD-zd-vN6"/>
+                            <constraint firstItem="tnq-xd-fRZ" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="ewS-pp-ozc"/>
+                            <constraint firstItem="n2K-lD-FDN" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="gMx-6G-ddl"/>
+                            <constraint firstItem="y04-Dp-xrf" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="iod-7m-zFb"/>
+                            <constraint firstItem="bBr-qS-mfs" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="v0z-N6-hs7"/>
+                            <constraint firstItem="A0M-sR-Hc4" firstAttribute="top" secondItem="tnq-xd-fRZ" secondAttribute="bottom" constant="8.5" id="v7j-10-DnW"/>
+                            <constraint firstItem="n2K-lD-FDN" firstAttribute="top" secondItem="NJw-mF-lvP" secondAttribute="bottom" constant="8.5" id="vym-eS-ezF"/>
                             <constraint firstItem="Kw3-Ks-wep" firstAttribute="centerX" secondItem="rgp-Dm-x2b" secondAttribute="centerX" id="zOT-mJ-OEN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addOrderButton" destination="bBr-qS-mfs" id="gYt-Lz-AZK"/>
+                        <outlet property="appPickerView" destination="y04-Dp-xrf" id="1AO-La-nDz"/>
+                        <outlet property="drinkPickerView" destination="A0M-sR-Hc4" id="hPK-q6-FFf"/>
+                        <outlet property="mainCoursePickerView" destination="n2K-lD-FDN" id="eSX-n8-bX3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TF-gr-TZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
