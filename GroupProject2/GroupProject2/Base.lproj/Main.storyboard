@@ -655,10 +655,10 @@
             </objects>
             <point key="canvasLocation" x="-1023" y="-1296"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--View Controller-->
         <scene sceneID="VbY-c3-Az1">
             <objects>
-                <tabBarController id="oPm-9M-Vcg" sceneMemberID="viewController">
+                <tabBarController id="oPm-9M-Vcg" customClass="ViewController" customModule="GroupProject2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="GEf-CN-UYa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

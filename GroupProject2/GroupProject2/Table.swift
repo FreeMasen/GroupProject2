@@ -22,6 +22,16 @@ class Table {
     }
     
     func DeleteOrderWithId(id: Int) {
-        
+        var index: Int?
+        var i = 0
+        for order in Orders {
+            i += 1
+            if order.OrderId == id {
+                index = i
+            }
+        }
+        if index != nil {
+            Orders.removeAtIndex(index!)
+        }
     }
 }
