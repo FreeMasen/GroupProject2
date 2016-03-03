@@ -66,22 +66,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             case 0:
                 cell.item.text = menu.Apps[indexPath.row].Name
                 cell.desc.text = menu.Apps[indexPath.row].Desc
-                cell.price.text = String(format:"$%d2", menu.Apps[indexPath.row].Price)
+                cell.price.text = String(format:"$%.2f", menu.Apps[indexPath.row].Price)
                 break
             case 1:
             cell.item.text = menu.Entre[indexPath.row].Name
             cell.desc.text = menu.Entre[indexPath.row].Desc
-            cell.price.text = String(format:"$%d2", menu.Entre[indexPath.row].Price)
+            cell.price.text = String(format:"$%.2f", menu.Entre[indexPath.row].Price)
             break
             case 2:
             cell.item.text = menu.Dessert[indexPath.row].Name
             cell.desc.text = menu.Dessert[indexPath.row].Desc
-            cell.price.text = String(format:"$%d2", menu.Dessert[indexPath.row].Price)
+            cell.price.text = String(format:"$%.2f", menu.Dessert[indexPath.row].Price)
             break
             case 3:
             cell.item.text = menu.Drinks[indexPath.row].Name
             cell.desc.text = menu.Drinks[indexPath.row].Desc
-            cell.price.text = String(format:"$%d2", menu.Drinks[indexPath.row].Price)
+            cell.price.text = String(format:"$%.2f", menu.Drinks[indexPath.row].Price)
             break
         default: break
         }
