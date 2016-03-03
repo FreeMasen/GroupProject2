@@ -41,15 +41,18 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == drinkPickerView{
+        
+        if pickerView == drinkPickerView {
                 return drinkList.count
         
         } else if pickerView == appPickerView {
             return appList.count
         
-        } else {
+        } else if pickerView == mainCoursePickerView {
             return mainCourseList.count
         
+        } else {
+            return 0
         }
     }
     
@@ -57,17 +60,16 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func addDrinksToDrinkList() {
             
     }
+    
     //pull apps from the database
     func addAppsToAppList() {
     
     
     }
+    
     // pull main courses from the database
     func addMainCourseToMainCourseList() {
 
     
     }
-
-
-
 }
