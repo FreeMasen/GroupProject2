@@ -8,11 +8,17 @@
 
 import UIKit
 
-class FloorViewController: UIViewController {
+class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var floorCollectionView: UICollectionView!
+    var tableList = [Int]()
+    @IBOutlet weak var addTableButton: UIButton!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +26,30 @@ class FloorViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tableList.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
+            cell.tableLabel.text = "Table \(tableList[indexPath.row])"
+        
+        
+        return cell
+    }
+    
+    
+    @IBAction func addTableToCollection(sender: AnyObject) {
+        
+        tableList.append(tableList.count + 1)
+        floorCollectionView.reloadData()
+        
+        
+        
+        
+    }
+    
     
 
     /*

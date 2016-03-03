@@ -18,6 +18,8 @@
 		81D17CE31C7D3D16004872EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D17CE11C7D3D16004872EA /* LaunchScreen.storyboard */; };
 		81D7BB151C7D5BBA00F2ADE5 /* SQLLiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7BB141C7D5BBA00F2ADE5 /* SQLLiteHelper.swift */; };
 		C948DC211C85729D00CFD6A5 /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */; };
+		C9D7EBF71C866C1400A58490 /* TableCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */; };
+		C9D7EBF91C86738A00A58490 /* EditMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */; };
 		C9EEFAD01C85559600CEED53 /* EditMenuItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EEFACF1C85559600CEED53 /* EditMenuItemsViewController.swift */; };
 		C9EEFAD21C8555AF00CEED53 /* AssignServersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EEFAD11C8555AF00CEED53 /* AssignServersViewController.swift */; };
 		C9FF3A331C812E43005F7FD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF3A321C812E43005F7FD8 /* WelcomeViewController.swift */; };
@@ -42,6 +44,8 @@
 		81D17CE41C7D3D16004872EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D7BB141C7D5BBA00F2ADE5 /* SQLLiteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLLiteHelper.swift; sourceTree = "<group>"; };
 		C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
+		C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCollectionItem.swift; sourceTree = "<group>"; };
+		C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMenuItemCell.swift; sourceTree = "<group>"; };
 		C9EEFACF1C85559600CEED53 /* EditMenuItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMenuItemsViewController.swift; sourceTree = "<group>"; };
 		C9EEFAD11C8555AF00CEED53 /* AssignServersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssignServersViewController.swift; path = ../AssignServersViewController.swift; sourceTree = "<group>"; };
 		C9FF3A321C812E43005F7FD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +94,6 @@
 				818283571C7D3EEA002ED116 /* Item.swift */,
 				818283591C7D3EF0002ED116 /* Order.swift */,
 				81D7BB141C7D5BBA00F2ADE5 /* SQLLiteHelper.swift */,
-				C9FF3A3D1C813AF6005F7FD8 /* MenuItemCell.swift */,
 				81D17CDF1C7D3D16004872EA /* Assets.xcassets */,
 				81D17CE11C7D3D16004872EA /* LaunchScreen.storyboard */,
 				81D17CE41C7D3D16004872EA /* Info.plist */,
@@ -108,8 +111,11 @@
 				C9FF3A341C812E6D005F7FD8 /* AdminViewController.swift */,
 				C9FF3A361C812E81005F7FD8 /* MenuViewController.swift */,
 				C9FF3A381C812E93005F7FD8 /* FloorViewController.swift */,
+				C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */,
 				C9FF3A3A1C812EA5005F7FD8 /* OrderViewController.swift */,
 				C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */,
+				C9FF3A3D1C813AF6005F7FD8 /* MenuItemCell.swift */,
+				C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			files = (
 				8182835A1C7D3EF0002ED116 /* Order.swift in Sources */,
 				81D7BB151C7D5BBA00F2ADE5 /* SQLLiteHelper.swift in Sources */,
+				C9D7EBF71C866C1400A58490 /* TableCollectionItem.swift in Sources */,
 				818283581C7D3EEA002ED116 /* Item.swift in Sources */,
 				818283541C7D3ED5002ED116 /* Menu.swift in Sources */,
 				C9FF3A351C812E6D005F7FD8 /* AdminViewController.swift in Sources */,
@@ -197,6 +204,7 @@
 				C9FF3A371C812E81005F7FD8 /* MenuViewController.swift in Sources */,
 				C948DC211C85729D00CFD6A5 /* NewOrderViewController.swift in Sources */,
 				C9FF3A3B1C812EA5005F7FD8 /* OrderViewController.swift in Sources */,
+				C9D7EBF91C86738A00A58490 /* EditMenuItemCell.swift in Sources */,
 				81D17CDB1C7D3D16004872EA /* ViewController.swift in Sources */,
 				818283561C7D3EDA002ED116 /* Table.swift in Sources */,
 				81D17CD91C7D3D16004872EA /* AppDelegate.swift in Sources */,
