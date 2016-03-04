@@ -15,6 +15,12 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var editMenuTableView: UITableView!
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var descTextField: UITextField!
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var breakfastSwitch: UISwitch!
+    @IBOutlet weak var brunchSwitch: UISwitch!
+    @IBOutlet weak var lunchSwitch: UISwitch!
+    @IBOutlet weak var dinnerSwitch: UISwitch!
+    
     
     var items = ["test1","test2"]
     var descriptions = ["tester","tester2"]
@@ -47,9 +53,30 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    //**Switches**
     @IBAction func addNewMenuItem(sender: UIButton) {
         
     }
+    
+    @IBAction func addToBreakfast(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToBrunch(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToLunch(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToDinner(sender: AnyObject) {
+        
+    }
+    
+    
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
