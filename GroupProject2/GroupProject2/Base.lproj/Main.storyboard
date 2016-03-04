@@ -418,12 +418,6 @@
                                     </mask>
                                 </variation>
                             </pickerView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tk0-RF-RmH">
-                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                                <connections>
-                                    <action selector="addToBrunch:" destination="6y5-CR-D9B" eventType="valueChanged" id="K6p-GV-g4U"/>
-                                </connections>
-                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E6f-4K-Wyu">
                                 <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                 <connections>
@@ -448,7 +442,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brunch" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-1t-mCh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy Hour" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-1t-mCh">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -466,6 +460,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tk0-RF-RmH">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <connections>
+                                    <action selector="addToHappyHour:" destination="6y5-CR-D9B" eventType="valueChanged" id="LdC-6D-q2X"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -515,7 +515,6 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="fU0-kI-EwL"/>
-                                <exclude reference="Tk0-RF-RmH"/>
                                 <exclude reference="E6f-4K-Wyu"/>
                                 <exclude reference="IzB-op-jDz"/>
                                 <exclude reference="1cA-Gz-krm"/>
@@ -523,6 +522,7 @@
                                 <exclude reference="zyv-1t-mCh"/>
                                 <exclude reference="WAh-jv-fAN"/>
                                 <exclude reference="Nou-9Y-wyR"/>
+                                <exclude reference="Tk0-RF-RmH"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GtJ-0n-E81"/>
@@ -548,7 +548,6 @@
                         <variation key="widthClass=regular">
                             <mask key="subviews">
                                 <include reference="fU0-kI-EwL"/>
-                                <include reference="Tk0-RF-RmH"/>
                                 <include reference="E6f-4K-Wyu"/>
                                 <include reference="IzB-op-jDz"/>
                                 <include reference="1cA-Gz-krm"/>
@@ -556,6 +555,7 @@
                                 <include reference="zyv-1t-mCh"/>
                                 <include reference="WAh-jv-fAN"/>
                                 <include reference="Nou-9Y-wyR"/>
+                                <include reference="Tk0-RF-RmH"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="GtJ-0n-E81"/>
@@ -582,11 +582,11 @@
                     <connections>
                         <outlet property="addItemButton" destination="nph-F9-0cS" id="L0m-qb-odA"/>
                         <outlet property="breakfastSwitch" destination="E6f-4K-Wyu" id="eCx-AI-PEI"/>
-                        <outlet property="brunchSwitch" destination="Tk0-RF-RmH" id="vyh-XA-gJE"/>
                         <outlet property="categoryPickerView" destination="fU0-kI-EwL" id="Sbx-qj-NuU"/>
                         <outlet property="descTextField" destination="kRS-dp-sCQ" id="3AH-EK-3QV"/>
                         <outlet property="dinnerSwitch" destination="IzB-op-jDz" id="7Fu-CE-g2E"/>
                         <outlet property="editMenuTableView" destination="oBp-nV-qeO" id="3pW-bH-c2Z"/>
+                        <outlet property="happyHourSwitch" destination="Tk0-RF-RmH" id="8bV-VB-fO2"/>
                         <outlet property="itemTextField" destination="gTb-eV-8LA" id="7GN-MW-RXj"/>
                         <outlet property="lunchSwitch" destination="1cA-Gz-krm" id="1pq-66-3w3"/>
                         <outlet property="priceTextField" destination="qTI-C6-StN" id="Ko9-5t-ec2"/>

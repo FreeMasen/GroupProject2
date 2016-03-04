@@ -16,8 +16,9 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var descTextField: UITextField!
     @IBOutlet weak var categoryPickerView: UIPickerView!
+    
     @IBOutlet weak var breakfastSwitch: UISwitch!
-    @IBOutlet weak var brunchSwitch: UISwitch!
+    @IBOutlet weak var happyHourSwitch: UISwitch!
     @IBOutlet weak var lunchSwitch: UISwitch!
     @IBOutlet weak var dinnerSwitch: UISwitch!
     
@@ -53,24 +54,26 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
-    //**Switches**
+    
     @IBAction func addNewMenuItem(sender: UIButton) {
         
     }
     
-    @IBAction func addToBreakfast(sender: AnyObject) {
+    //**Switches**
+    @IBAction func addToBreakfast(sender: UIButton) {
         
     }
     
-    @IBAction func addToBrunch(sender: AnyObject) {
+    @IBAction func addToHappyHour(sender: AnyObject) {
         
     }
     
-    @IBAction func addToLunch(sender: AnyObject) {
+    
+    @IBAction func addToLunch(sender: UIButton) {
         
     }
     
-    @IBAction func addToDinner(sender: AnyObject) {
+    @IBAction func addToDinner(sender: UIButton) {
         
     }
     
