@@ -49,6 +49,33 @@ class SQLhelper {
         return items
     }
     
+    static func insertItem(item: Item) {
+        do {
+            let db = try Connection(connectionString)
+            do {
+                try db.run( MenuTable.insert(Name <- item.Name, Price <- item.Price, Desc <- item.Desc, Menues <- Int(item.Menues), Type <- item.Type.rawValue))
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    static func removeItem(item: Item) {
+        do {
+            let db = try Connection(connectionString)
+            do {
+                let rowToDelete = MenuTable.filter(Id == item.Id)
+                try db.run( rowToDelete.delete())
+            } catch {
+                print(error)
+            }
+        } catch {
+                print(error)
+        }
+    }
+    
     private static func clearSeedData() {
         let fm = NSFileManager.defaultManager()
         do {
