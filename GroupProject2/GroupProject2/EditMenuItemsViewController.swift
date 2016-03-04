@@ -15,12 +15,19 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var editMenuTableView: UITableView!
     @IBOutlet weak var addItemButton: UIButton!
     @IBOutlet weak var descTextField: UITextField!
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var breakfastSwitch: UISwitch!
+    @IBOutlet weak var brunchSwitch: UISwitch!
+    @IBOutlet weak var lunchSwitch: UISwitch!
+    @IBOutlet weak var dinnerSwitch: UISwitch!
     
-    var items = []
-    var descriptions = []
-    var prices = []
+    
+    var items = ["test1","test2"]
+    var descriptions = ["tester","tester2"]
+    var prices = [2.25, 3.25]
     var photos = [UIImage()]
-        
+//    var itemObject = [Item()]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,33 +42,56 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     //**USER INPUT**
     @IBAction func getItem(sender: UITextField) {
+        
     }
     
     @IBAction func getPrice(sender: UITextField) {
+        
     }
     
     @IBAction func getDesc(sender: UITextField) {
+        
     }
     
+    //**Switches**
     @IBAction func addNewMenuItem(sender: UIButton) {
+        
     }
+    
+    @IBAction func addToBreakfast(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToBrunch(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToLunch(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func addToDinner(sender: AnyObject) {
+        
+    }
+    
+    
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.editMenuTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MenuItemCell
-//        
-        cell.item.text = (items[indexPath.row] as! String)
-        cell.desc.text = (descriptions[indexPath.row] as! String)
-        cell.price.text = (prices[indexPath.row] as! String)
+        let cell = self.editMenuTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EditMenuItemCell
+      
+        cell.itemLabel.text = items[indexPath.row]
+        cell.descLabel.text = descriptions[indexPath.row]
+        cell.priceLabel.text = "\(prices[indexPath.row])"
         return cell
     }
     
     
-    
-
     /*
     // MARK: - Navigation
 
