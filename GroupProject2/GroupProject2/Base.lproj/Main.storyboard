@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -524,24 +525,24 @@
                                 <exclude reference="Nou-9Y-wyR"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Rs7-Jl-Put"/>
-                                <exclude reference="Xlo-ZW-0zl"/>
                                 <exclude reference="GtJ-0n-E81"/>
                                 <exclude reference="OJk-xf-tMq"/>
-                                <exclude reference="QEH-hM-zT2"/>
-                                <exclude reference="ewK-CF-eRf"/>
-                                <exclude reference="1fV-xu-IG5"/>
-                                <exclude reference="YC7-N0-aq9"/>
-                                <exclude reference="ylS-B7-Pjy"/>
-                                <exclude reference="vJ3-HE-6Kv"/>
                                 <exclude reference="9sA-Kh-qxw"/>
                                 <exclude reference="IlW-QU-Qa2"/>
                                 <exclude reference="eg9-21-kUE"/>
                                 <exclude reference="mb0-nF-C63"/>
+                                <exclude reference="QEH-hM-zT2"/>
+                                <exclude reference="ewK-CF-eRf"/>
                                 <exclude reference="5p3-1s-lFK"/>
                                 <exclude reference="X7W-F7-wBw"/>
                                 <exclude reference="bPb-4C-LA3"/>
                                 <exclude reference="yMu-02-1Dz"/>
+                                <exclude reference="1fV-xu-IG5"/>
+                                <exclude reference="YC7-N0-aq9"/>
+                                <exclude reference="ylS-B7-Pjy"/>
+                                <exclude reference="vJ3-HE-6Kv"/>
+                                <exclude reference="Rs7-Jl-Put"/>
+                                <exclude reference="Xlo-ZW-0zl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -557,24 +558,24 @@
                                 <include reference="Nou-9Y-wyR"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Rs7-Jl-Put"/>
-                                <include reference="Xlo-ZW-0zl"/>
                                 <include reference="GtJ-0n-E81"/>
                                 <include reference="OJk-xf-tMq"/>
-                                <include reference="QEH-hM-zT2"/>
-                                <include reference="ewK-CF-eRf"/>
-                                <include reference="1fV-xu-IG5"/>
-                                <include reference="YC7-N0-aq9"/>
-                                <include reference="ylS-B7-Pjy"/>
-                                <include reference="vJ3-HE-6Kv"/>
                                 <include reference="9sA-Kh-qxw"/>
                                 <include reference="IlW-QU-Qa2"/>
                                 <include reference="eg9-21-kUE"/>
                                 <include reference="mb0-nF-C63"/>
+                                <include reference="QEH-hM-zT2"/>
+                                <include reference="ewK-CF-eRf"/>
                                 <include reference="5p3-1s-lFK"/>
                                 <include reference="X7W-F7-wBw"/>
                                 <include reference="bPb-4C-LA3"/>
                                 <include reference="yMu-02-1Dz"/>
+                                <include reference="1fV-xu-IG5"/>
+                                <include reference="YC7-N0-aq9"/>
+                                <include reference="ylS-B7-Pjy"/>
+                                <include reference="vJ3-HE-6Kv"/>
+                                <include reference="Rs7-Jl-Put"/>
+                                <include reference="Xlo-ZW-0zl"/>
                             </mask>
                         </variation>
                     </view>
