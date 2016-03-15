@@ -35,8 +35,8 @@ class SQLhelper {
                     let price = row[Price]
                     let desc = row[Desc]
                     let menues = UInt8(row[Menues])
-                    let type = ItemType(rawValue: row[Type])
-                    let item = Item(id: id, name: name, price: price, desc: desc, menues: menues, type: type!)
+                    let type = row[Type]
+                    let item = Item(id: id, name: name, price: price, desc: desc, menues: menues, type: type)
                     items.append(item)
                 }
             } catch {
@@ -52,7 +52,7 @@ class SQLhelper {
         do {
             let db = try Connection(connectionString)
             do {
-                try db.run( MenuTable.insert(Name <- item.Name, Price <- item.Price, Desc <- item.Desc, Menues <- Int(item.Menues), Type <- item.Type.rawValue))
+                try db.run( MenuTable.insert(Name <- item.Name, Price <- item.Price, Desc <- item.Desc, Menues <- Int(item.Menues), Type <- item.Type))
             } catch {
                 print(error)
             }
