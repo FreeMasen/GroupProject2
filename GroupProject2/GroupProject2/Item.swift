@@ -15,9 +15,9 @@ class Item {
     var Desc: String
     var TimeAddedToOrder: NSDate?
     var Menues: UInt8
-    var Type: ItemType
+    var Type: Int
     
-    init(id: Int, name: String, price: Double, desc: String, menues: UInt8, type: ItemType) {
+    init(id: Int, name: String, price: Double, desc: String, menues: UInt8, type: Int) {
         Id = id
         Name = name
         Price = price

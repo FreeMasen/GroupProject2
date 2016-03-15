@@ -11,7 +11,7 @@ import UIKit
 class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var floorCollectionView: UICollectionView!
-    var tableList = [Int]()
+    var tableList = [Table]()
     @IBOutlet weak var addTableButton: UIButton!
     let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
     
@@ -36,7 +36,6 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
             cell.tableLabel.text = "Table \(tableList[indexPath.row])"
         
-        
         return cell
     }
     
@@ -46,9 +45,6 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         tableList.append(tableList.count + 1)
         floorCollectionView.reloadData()
         saveTableCount(tableList.count)
-        
-        
-        
     }
     
     // Returns the number of tables that were saved in the user defaults.
