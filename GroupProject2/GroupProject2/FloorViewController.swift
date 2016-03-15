@@ -13,13 +13,14 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var floorCollectionView: UICollectionView!
     var tableList = [Int]()
     @IBOutlet weak var addTableButton: UIButton!
-    
-   
+    let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        for _ in 1...initialTableCount() {
+            addTableToCollection("Sender")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,13 +45,28 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         tableList.append(tableList.count + 1)
         floorCollectionView.reloadData()
-        
+        saveTableCount(tableList.count)
         
         
         
     }
     
+    // Returns the number of tables that were saved in the user defaults.
+    func initialTableCount() -> Int {
+        let savedCount = NSUserDefaults.standardUserDefaults().objectForKey(userDefaultsNumberOfTablesKey) as? Int
+        if let count = savedCount  {
+            return count
+        } else {
+            return 0
+        }
+    }
     
+    // Saves the number of tables in the user defaults.
+    func saveTableCount(count: Int) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(count, forKey: userDefaultsNumberOfTablesKey)
+        defaults.synchronize()
+    }
 
     /*
     // MARK: - Navigation
