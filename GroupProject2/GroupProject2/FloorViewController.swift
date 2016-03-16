@@ -52,7 +52,7 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @IBAction func addTableToCollection(sender: AnyObject) {
-        tableList.append(Table(id: (tableList.count + 1), orders: [Order]()))
+        tableList.append(Table())
         floorCollectionView.reloadData()
         saveTableCount(tableList.count)
     }

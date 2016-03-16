@@ -8,8 +8,7 @@
 
 import UIKit
 var menu = Menu()
-
-var menu = Menu()
+var floor = ServingFloor()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

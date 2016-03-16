@@ -11,8 +11,14 @@ import Foundation
 class Order {
     var OrderId : Int
     var Items: [Item]
-    var Total: Double {
+    var SubTotal: Double {
         return Items.reduce(0, combine: {$0 + $1.Price})
+    }
+    var Tax: Double {
+        return (SubTotal * 0.175)
+    }
+    var Total: Double {
+        return (SubTotal + Tax)
     }
     
     init(orderId: Int, items: [Item]) {
@@ -25,6 +31,16 @@ class Order {
     }
     
     func removeItemWithId(id: Int) {
-        
+        var itter = 0
+        var index = -1
+        for item in Items {
+            if item.Id == id {
+                index = itter
+            }
+            itter += 1
+        }
+        if itter > -1 {
+            Items.removeAtIndex(index)
+        }
     }
 }
