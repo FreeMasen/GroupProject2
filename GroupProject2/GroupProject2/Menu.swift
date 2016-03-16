@@ -23,6 +23,7 @@ class Menu {
         for item in SQLhelper.GetItems() {
             if item.Menues & currentMenuWindow == currentMenuWindow {
                 switch item.Type {
+<<<<<<< HEAD
                     case "Apps":
                         Apps.append(item)
                         break
@@ -33,6 +34,18 @@ class Menu {
                         Dessert.append(item)
                         break
                     case "Drinks":
+=======
+                    case 1:
+                        Apps.append(item)
+                        break
+                    case 2:
+                        Entre.append(item)
+                        break
+                    case 4:
+                        Dessert.append(item)
+                        break
+                    case 8:
+>>>>>>> RFM
                         Drinks.append(item)
                         break
                     default:

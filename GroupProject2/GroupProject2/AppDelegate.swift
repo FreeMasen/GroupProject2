@@ -9,6 +9,8 @@
 import UIKit
 var menu = Menu()
 
+var menu = Menu()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
