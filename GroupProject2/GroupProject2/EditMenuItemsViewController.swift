@@ -32,7 +32,6 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     var menuTimes = UInt8()
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         menu.GetItemsForMenu()
