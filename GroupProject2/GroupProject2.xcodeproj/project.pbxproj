@@ -19,6 +19,7 @@
 		81D17CDE1C7D3D16004872EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D17CDC1C7D3D16004872EA /* Main.storyboard */; };
 		81D17CE01C7D3D16004872EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D17CDF1C7D3D16004872EA /* Assets.xcassets */; };
 		81D17CE31C7D3D16004872EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D17CE11C7D3D16004872EA /* LaunchScreen.storyboard */; };
+		C918F3811C9A1B9600C1A4DF /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F3801C9A1B9600C1A4DF /* CheckoutViewController.swift */; };
 		C948DC211C85729D00CFD6A5 /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */; };
 		C9D7EBF71C866C1400A58490 /* TableCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */; };
 		C9D7EBF91C86738A00A58490 /* EditMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */; };
@@ -47,6 +48,7 @@
 		81D17CDF1C7D3D16004872EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D17CE21C7D3D16004872EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81D17CE41C7D3D16004872EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C918F3801C9A1B9600C1A4DF /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCollectionItem.swift; sourceTree = "<group>"; };
 		C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMenuItemCell.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				C948DC201C85729D00CFD6A5 /* NewOrderViewController.swift */,
 				C9FF3A3D1C813AF6005F7FD8 /* MenuItemCell.swift */,
 				C9D7EBF81C86738A00A58490 /* EditMenuItemCell.swift */,
+				C918F3801C9A1B9600C1A4DF /* CheckoutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				815C52891C869B9900054ACB /* SQLHelper.swift in Sources */,
 				C9FF3A3E1C813AF6005F7FD8 /* MenuItemCell.swift in Sources */,
 				C9FF3A391C812E93005F7FD8 /* FloorViewController.swift in Sources */,
+				C918F3811C9A1B9600C1A4DF /* CheckoutViewController.swift in Sources */,
 				C9EEFAD01C85559600CEED53 /* EditMenuItemsViewController.swift in Sources */,
 				C9EEFAD21C8555AF00CEED53 /* AssignServersViewController.swift in Sources */,
 				C9FF3A371C812E81005F7FD8 /* MenuViewController.swift in Sources */,
