@@ -14,11 +14,12 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     var tableList = [Table]()
     @IBOutlet weak var addTableButton: UIButton!
     let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
+    var selectedTable = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        for _ in 1...initialTableCount() {
+        for _ in 0..<(initialTableCount()) {
             addTableToCollection("Sender")
         }
     }
@@ -34,15 +35,24 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
-            cell.tableLabel.text = "Table \(tableList[indexPath.row])"
+            cell.tableLabel.text = "Table \(tableList[indexPath.row].Id)"
         
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedTable = indexPath.row
+        performSegueWithIdentifier("order", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let newView = segue.destinationViewController as? OrderViewController {
+            newView.table = tableList[selectedTable]
+        }
+    }
     
     @IBAction func addTableToCollection(sender: AnyObject) {
-        
-        tableList.append(tableList.count + 1)
+        tableList.append(Table(id: (tableList.count + 1), orders: [Order]()))
         floorCollectionView.reloadData()
         saveTableCount(tableList.count)
     }
