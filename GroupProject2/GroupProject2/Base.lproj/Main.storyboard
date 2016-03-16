@@ -417,6 +417,10 @@
                                         <include reference="kTK-Cf-zOA"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="6y5-CR-D9B" id="o48-La-Gca"/>
+                                    <outlet property="delegate" destination="6y5-CR-D9B" id="PVV-Nh-epc"/>
+                                </connections>
                             </pickerView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E6f-4K-Wyu">
                                 <rect key="frame" x="-25" y="-15" width="51" height="31"/>
@@ -582,13 +586,13 @@
                     <connections>
                         <outlet property="addItemButton" destination="nph-F9-0cS" id="L0m-qb-odA"/>
                         <outlet property="breakfastSwitch" destination="E6f-4K-Wyu" id="eCx-AI-PEI"/>
-                        <outlet property="categoryPickerView" destination="fU0-kI-EwL" id="Sbx-qj-NuU"/>
                         <outlet property="descTextField" destination="kRS-dp-sCQ" id="3AH-EK-3QV"/>
                         <outlet property="dinnerSwitch" destination="IzB-op-jDz" id="7Fu-CE-g2E"/>
                         <outlet property="editMenuTableView" destination="oBp-nV-qeO" id="3pW-bH-c2Z"/>
                         <outlet property="happyHourSwitch" destination="Tk0-RF-RmH" id="8bV-VB-fO2"/>
                         <outlet property="itemTextField" destination="gTb-eV-8LA" id="7GN-MW-RXj"/>
                         <outlet property="lunchSwitch" destination="1cA-Gz-krm" id="1pq-66-3w3"/>
+                        <outlet property="menuTypePickerView" destination="fU0-kI-EwL" id="FTv-F8-i4x"/>
                         <outlet property="priceTextField" destination="qTI-C6-StN" id="Ko9-5t-ec2"/>
                     </connections>
                 </viewController>
