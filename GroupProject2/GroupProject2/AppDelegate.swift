@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var menu = Menu()
 
 var menu = Menu()
 
