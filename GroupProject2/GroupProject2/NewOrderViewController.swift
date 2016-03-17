@@ -14,6 +14,7 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var appPickerView: UIPickerView!
     @IBOutlet weak var mainCoursePickerView: UIPickerView!
     
+    @IBOutlet weak var dessert: UIPickerView!
     @IBOutlet weak var addOrderButton: UIButton!
     
     var drinkList = []
@@ -56,7 +57,22 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    @IBAction func addDesert(sender: AnyObject) {
+    
+    }
+    
+    @IBAction func addDrinks(sender: AnyObject) {
+    
+    }
     //pull drinks from the database
+    @IBAction func addMain(sender: AnyObject) {
+    
+    }
+    
+    @IBAction func addApps(sender: AnyObject) {
+    
+    }
+    
     func addDrinksToDrinkList() {
             
     }
