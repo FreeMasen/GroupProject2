@@ -11,6 +11,9 @@ import Foundation
 class Order {
     var OrderId : Int
     var Items: [Item]
+    var Total: Double {
+        return Items.reduce(0, combine: {$0 + $1.Price})
+    }
     
     init(orderId: Int, items: [Item]) {
         OrderId = orderId

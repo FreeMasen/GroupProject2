@@ -18,15 +18,14 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var checkoutButton: UIButton!
     
-    
-    var items = []
-    var descriptions = []
-    var prices = []
-    var photos = [UIImage()]
+    var table: Table?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if table != nil {
+            tableTextField.text = "\(table!.Id)"
+            partySizeTextField.text = "\(table!.Orders.count)"
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -36,15 +35,20 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if let count = table?.Orders.count {
+            return count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.orderTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MenuItemCell
-        
-        cell.item.text = (items[indexPath.row] as! String)
-        cell.desc.text = (descriptions[indexPath.row] as! String)
-        cell.price.text = (prices[indexPath.row] as! String)
+
+        if let orders = table?.Orders {
+            cell.item.text = "Table: \(orders[indexPath.row].OrderId)"
+            cell.desc.text = "Items: \(orders[indexPath.row].Items.count)"
+            cell.price.text = "Totals \(orders[indexPath.row].Total)"
+        }
         return cell
     }
     

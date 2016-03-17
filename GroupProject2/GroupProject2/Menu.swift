@@ -23,16 +23,16 @@ class Menu {
         for item in SQLhelper.GetItems() {
             if item.Menues & currentMenuWindow == currentMenuWindow {
                 switch item.Type {
-                    case .Apps:
+                    case "Apps":
                         Apps.append(item)
                         break
-                    case .Entre:
+                    case "Entre":
                         Entre.append(item)
                         break
-                    case .Dessert:
+                    case "Dessert":
                         Dessert.append(item)
                         break
-                    case .Drinks:
+                    case "Drinks":
                         Drinks.append(item)
                         break
                     default:

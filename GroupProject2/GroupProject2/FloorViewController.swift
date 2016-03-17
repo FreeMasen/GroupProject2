@@ -11,15 +11,17 @@ import UIKit
 class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var floorCollectionView: UICollectionView!
-    var tableList = [Int]()
+    var tableList = [Table]()
     @IBOutlet weak var addTableButton: UIButton!
-    
-   
+    let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
+    var selectedTable = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        for _ in 0..<(initialTableCount()) {
+            addTableToCollection("Sender")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,24 +35,44 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
-            cell.tableLabel.text = "Table \(tableList[indexPath.row])"
-        
+            cell.tableLabel.text = "Table \(tableList[indexPath.row].Id)"
         
         return cell
     }
     
-    
-    @IBAction func addTableToCollection(sender: AnyObject) {
-        
-        tableList.append(tableList.count + 1)
-        floorCollectionView.reloadData()
-        
-        
-        
-        
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedTable = indexPath.row
+        performSegueWithIdentifier("order", sender: self)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let newView = segue.destinationViewController as? OrderViewController {
+            newView.table = tableList[selectedTable]
+        }
+    }
     
+    @IBAction func addTableToCollection(sender: AnyObject) {
+        tableList.append(Table(id: (tableList.count + 1), orders: [Order]()))
+        floorCollectionView.reloadData()
+        saveTableCount(tableList.count)
+    }
+    
+    // Returns the number of tables that were saved in the user defaults.
+    func initialTableCount() -> Int {
+        let savedCount = NSUserDefaults.standardUserDefaults().objectForKey(userDefaultsNumberOfTablesKey) as? Int
+        if let count = savedCount  {
+            return count
+        } else {
+            return 0
+        }
+    }
+    
+    // Saves the number of tables in the user defaults.
+    func saveTableCount(count: Int) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(count, forKey: userDefaultsNumberOfTablesKey)
+        defaults.synchronize()
+    }
 
     /*
     // MARK: - Navigation
