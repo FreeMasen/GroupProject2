@@ -75,6 +75,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         happyHourSwitch.on = false
         dinnerSwitch.on = false
         menuTimes = 0
+        menu = Menu()
         menu.GetItemsForMenu()
         editMenuTableView.reloadData()
     }

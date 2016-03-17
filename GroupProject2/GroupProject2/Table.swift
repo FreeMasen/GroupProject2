@@ -10,11 +10,12 @@ import Foundation
 
 class Table {
     let Id: Int
-    var Orders: [Order]
+    var Orders = [Order]()
+    var Server: String
     
-    init(id: Int, orders: [Order]){
-        Id = id
-        Orders = orders
+    init() {
+        Id = floor.Tables.count + 1
+        Server = ""
     }
     
     func AddOrder(order: Order) {
