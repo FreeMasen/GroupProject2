@@ -21,6 +21,31 @@ class SQLhelper {
     private static let Menues = Expression<Int>("Menues")
     private static let Type = Expression<String>("Type")
     private static let firstRun = false
+	
+	static func GetMenu() -> Menu {
+		let items = [Item]()
+		var menu = Menu()
+		items = GetItems
+		for item in items {
+			switch item.Type {
+				case "Apps":
+                        menu.Apps.append(item)
+                        break
+                    case "Entre":
+                        menu.Entre.append(item)
+                        break
+                    case "Dessert":
+                        menu.Dessert.append(item)
+                        break
+                    case "Drinks":
+                        menu.Drinks.append(item)
+                        break
+                    default:
+                        break
+			}
+		}
+		return menu
+	}
     
     static func GetItems() -> [Item] {
         var items = [Item]()
