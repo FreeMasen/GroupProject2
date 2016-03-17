@@ -54,7 +54,7 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBAction func addTableToCollection(sender: AnyObject) {
         floor.Tables.append(Table())
         floorCollectionView.reloadData()
-        saveTableCount(tableList.count)
+        saveTableCount(floor.Tables.count)
     }
     
     // Returns the number of tables that were saved in the user defaults.
