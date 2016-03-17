@@ -51,9 +51,10 @@ class SQLhelper {
     
     static func firstRunOnly() {
         clearSeedData()
-        let db = try Connection(connectionString)
-        ensureTableExisits(db)
-        fillSeedData(db)
+        if let db = try? Connection(connectionString) {
+            ensureTableExisits(db)
+            fillSeedData(db)
+        }
     }
     
     static func insertItem(item: Item) {
