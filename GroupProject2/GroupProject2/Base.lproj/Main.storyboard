@@ -97,7 +97,7 @@
                     <connections>
                         <outlet property="addTableButton" destination="Gz5-M2-Mcb" id="KT9-To-llm"/>
                         <outlet property="floorCollectionView" destination="1mK-E0-a3W" id="uVr-ma-LeM"/>
-                        <segue destination="BzE-gy-Tkd" kind="show" identifier="order" id="KOE-8s-jiK"/>
+                        <segue destination="Mk8-xK-9zn" kind="show" identifier="order" id="IHt-cL-dYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rO-xS-E1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -966,7 +966,6 @@
                         <segue destination="7D6-3v-ZEY" kind="relationship" relationship="viewControllers" id="Sbk-dP-Wul"/>
                         <segue destination="AZm-bT-Vzd" kind="relationship" relationship="viewControllers" id="QWM-ow-kqT"/>
                         <segue destination="8MK-XJ-Xlv" kind="relationship" relationship="viewControllers" id="b2j-OI-d98"/>
-                        <segue destination="Mk8-xK-9zn" kind="relationship" relationship="viewControllers" id="aDL-0U-Q3t"/>
                         <segue destination="kLY-VF-frf" kind="relationship" relationship="viewControllers" id="R5F-6u-n8E"/>
                     </connections>
                 </tabBarController>
@@ -993,11 +992,10 @@
             </objects>
             <point key="canvasLocation" x="-278" y="-54"/>
         </scene>
-        <!--Order-->
+        <!--Navigation Controller-->
         <scene sceneID="vhi-cK-aEm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mk8-xK-9zn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Order" image="order" selectedImage="order" id="cn1-Gr-sYm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tIK-Dk-uHJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1017,9 +1015,5 @@
         <image name="admin" width="25" height="25"/>
         <image name="floor" width="25" height="25"/>
         <image name="menu" width="25" height="25"/>
-        <image name="order" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="KOE-8s-jiK"/>
-    </inferredMetricsTieBreakers>
 </document>
