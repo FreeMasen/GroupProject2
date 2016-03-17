@@ -111,8 +111,6 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -126,27 +124,15 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         default:
             return 0
         }
-
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Apps"
-        case 1:
-            return "Entre"
-        case 2:
-            return "Desserts"
-        case 3:
-            return "Drinks"
-        default:
-            return nil
-        }
+        return menuTypes[section]
         
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return menuTypes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
