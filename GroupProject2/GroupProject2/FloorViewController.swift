@@ -46,8 +46,9 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let newView = segue.destinationViewController as? OrderViewController {
-            newView.table = floor.Tables[selectedTable]
+        if let navView = segue.destinationViewController as? UINavigationController {
+            let newView = navView.viewControllers[0] as? OrderViewController
+            newView!.table = floor.Tables[selectedTable]
         }
     }
     
