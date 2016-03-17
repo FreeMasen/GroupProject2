@@ -20,40 +20,39 @@ class SQLhelper {
     private static let Desc = Expression<String>("Desc")
     private static let Menues = Expression<Int>("Menues")
     private static let Type = Expression<String>("Type")
-    private static let firstRun = false
+    private static var firstRun = false
 	
 	static func GetMenu() -> Menu {
-		let items = [Item]()
-		var menu = Menu()
-		items = GetItems
-		for item in items {
+		let m = Menu()
+		for item in GetItems() {
 			switch item.Type {
 				case "Apps":
-                        menu.Apps.append(item)
+                        m.Apps.append(item)
                         break
                     case "Entre":
-                        menu.Entre.append(item)
+                        m.Entre.append(item)
                         break
                     case "Dessert":
-                        menu.Dessert.append(item)
+                        m.Dessert.append(item)
                         break
                     case "Drinks":
-                        menu.Drinks.append(item)
+                        m.Drinks.append(item)
                         break
                     default:
                         break
 			}
 		}
-		return menu
+		return m
 	}
+    
+
     
     static func GetItems() -> [Item] {
         var items = [Item]()
         do {
-            clearSeedData()
+            CheckFirstRun()
             let db = try Connection(connectionString)
             ensureTableExisits(db)
-            fillSeedData(db)
             do {
                 for row in try db.prepare(MenuTable) {
                     let id = row[Id]
@@ -74,12 +73,33 @@ class SQLhelper {
         return items
     }
     
-    static func firstRunOnly() {
-        clearSeedData()
-        if let db = try? Connection(connectionString) {
-            ensureTableExisits(db)
-            fillSeedData(db)
+    static func CheckFirstRun() {
+        if let _ = try? Connection(connectionString).execute("SELECT * FROM MenuTable") {
+            firstRun = false
+        } else {
+            firstRun = true
         }
+    }
+    
+    private static func ensureTableExisits(db: Connection) {
+        
+            do {
+                if firstRun == true {
+                try db.run(MenuTable.create { t in
+                    t.column(Id, primaryKey: true)
+                    t.column(Name)
+                    t.column(Price)
+                    t.column(Desc)
+                    t.column(Menues)
+                    t.column(Type)
+                    })
+                    fillSeedData(db)
+                }
+
+            } catch {
+                print(error)
+            }
+        
     }
     
     static func insertItem(item: Item) {
@@ -175,20 +195,5 @@ class SQLhelper {
             print(error)
         }
 
-    }
-    
-    private static func ensureTableExisits(db: Connection) {
-        do {
-        try db.run(MenuTable.create { t in
-            t.column(Id, primaryKey: true)
-            t.column(Name)
-            t.column(Price)
-            t.column(Desc)
-            t.column(Menues)
-            t.column(Type)
-            })
-        } catch {
-            print(error)
-        }
     }
 }
