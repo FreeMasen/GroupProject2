@@ -16,6 +16,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var partySizeTextField: UITextField!
     @IBOutlet weak var newOrderButton: UIButton!
     @IBOutlet weak var serverTextField: UITextField!
+    @IBOutlet weak var checkoutButton: UIButton!
     
     var table: Table?
 
