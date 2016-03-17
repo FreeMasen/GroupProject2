@@ -25,7 +25,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var menuTypePickerView: UIPickerView!
     
     let menuTypes = ["Apps", "Entres", "Deserts", "Drinks"]
-    var currentMenuType = String()
+    var currentMenuType = "Apps"
     var itemName = String()
     var itemPrice = Double()
     var itemDescription = String()
@@ -34,8 +34,6 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menu.GetItemsForMenu()
-
         // Do any additional setup after loading the view.
     }
 
@@ -75,8 +73,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         happyHourSwitch.on = false
         dinnerSwitch.on = false
         menuTimes = 0
-        menu = Menu()
-        menu.GetItemsForMenu()
+        menu = SQLhelper.GetMenu()
         editMenuTableView.reloadData()
     }
     

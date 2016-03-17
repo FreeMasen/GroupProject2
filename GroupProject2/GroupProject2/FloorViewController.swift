@@ -11,7 +11,7 @@ import UIKit
 class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var floorCollectionView: UICollectionView!
-    var tableList = [Table]()
+    
     @IBOutlet weak var addTableButton: UIButton!
     let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
     var selectedTable = -1
@@ -30,12 +30,12 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tableList.count
+        return floor.Tables.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
-            cell.tableLabel.text = "Table \(tableList[indexPath.row].Id)"
+            cell.tableLabel.text = "Table \(floor.Tables[indexPath.row].Id)"
         
         return cell
     }
@@ -47,14 +47,14 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let newView = segue.destinationViewController as? OrderViewController {
-            newView.table = tableList[selectedTable]
+            newView.table = floor.Tables[selectedTable]
         }
     }
     
     @IBAction func addTableToCollection(sender: AnyObject) {
-        tableList.append(Table())
+        floor.Tables.append(Table())
         floorCollectionView.reloadData()
-        saveTableCount(tableList.count)
+        saveTableCount(floor.Tables.count)
     }
     
     // Returns the number of tables that were saved in the user defaults.
