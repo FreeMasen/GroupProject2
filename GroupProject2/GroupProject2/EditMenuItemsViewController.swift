@@ -24,7 +24,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var menuTypePickerView: UIPickerView!
     
-    let menuTypes = ["Apps", "Entres", "Deserts", "Drinks"]
+    let menuTypes = ["Apps", "Entre", "Dessert", "Drinks"]
     var currentMenuType = "Apps"
     var itemName = String()
     var itemPrice = Double()
@@ -134,7 +134,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         case 0:
             return "Apps"
         case 1:
-            return "Entres"
+            return "Entre"
         case 2:
             return "Desserts"
         case 3:

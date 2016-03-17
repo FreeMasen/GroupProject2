@@ -353,7 +353,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTb-eV-8LA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTb-eV-8LA">
                                 <rect key="frame" x="76" y="135" width="182" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="2cu-xl-gj1"/>
@@ -365,7 +365,7 @@
                                     <action selector="getItem:" destination="6y5-CR-D9B" eventType="editingDidEnd" id="I7c-ck-sL7"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-C6-StN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-C6-StN">
                                 <rect key="frame" x="344" y="134" width="104" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qTI-C6-StN" secondAttribute="height" multiplier="52:15" id="HON-Oy-IqV"/>
@@ -375,18 +375,6 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="getPrice:" destination="6y5-CR-D9B" eventType="editingDidEnd" id="kFi-Mp-mlz"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRS-dp-sCQ">
-                                <rect key="frame" x="140" y="190" width="308" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="308" id="09h-KU-fC5"/>
-                                    <constraint firstAttribute="width" secondItem="kRS-dp-sCQ" secondAttribute="height" multiplier="154:15" id="aS9-6s-Ru5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="getDesc:" destination="6y5-CR-D9B" eventType="editingDidEnd" id="gxr-hr-rnq"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nph-F9-0cS">
@@ -471,6 +459,18 @@
                                     <action selector="addToHappyHour:" destination="6y5-CR-D9B" eventType="valueChanged" id="LdC-6D-q2X"/>
                                 </connections>
                             </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRS-dp-sCQ">
+                                <rect key="frame" x="140" y="190" width="308" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="308" id="09h-KU-fC5"/>
+                                    <constraint firstAttribute="width" secondItem="kRS-dp-sCQ" secondAttribute="height" multiplier="154:15" id="aS9-6s-Ru5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="getDesc:" destination="6y5-CR-D9B" eventType="editingDidEnd" id="gxr-hr-rnq"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

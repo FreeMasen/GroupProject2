@@ -48,6 +48,7 @@ class SQLhelper {
 
     
     static func GetItems() -> [Item] {
+//        clearSeedData()
         var items = [Item]()
         do {
             CheckFirstRun()
