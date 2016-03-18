@@ -26,9 +26,20 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var order: Order?
     var table: Table?
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                // Do any additional setup after loading the view.
+        let cancel = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("cancel"))
+        self.navigationItem.leftBarButtonItem = cancel
+        let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
+        self.navigationItem.rightBarButtonItem = plus
+
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,8 +66,12 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    func cancel() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
    
-    @IBAction func addOrderToTable(sender: UIButton) {
+    func addOrderToTable() {
         if let t = table , o = order {
             t.Orders.append(o)
         }

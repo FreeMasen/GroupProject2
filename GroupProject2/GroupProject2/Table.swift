@@ -16,13 +16,8 @@ class Table {
     var Server: String
     
     init() {
-<<<<<<< HEAD
-        Table.tableCount += 1
-        Id = Table.tableCount
-=======
         Id = Table.idCounter
         Table.idCounter += 1
->>>>>>> master
         Server = ""
     }
     
