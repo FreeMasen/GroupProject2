@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="addTableButton" destination="Gz5-M2-Mcb" id="KT9-To-llm"/>
                         <outlet property="floorCollectionView" destination="1mK-E0-a3W" id="uVr-ma-LeM"/>
+                        <segue destination="Mk8-xK-9zn" kind="show" id="44f-bE-4ue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rO-xS-E1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
