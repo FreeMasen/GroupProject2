@@ -11,10 +11,12 @@ import Foundation
 class Table {
     let Id: Int
     var Orders = [Order]()
+    static var tableCount = 0
     var Server: String
     
     init() {
-        Id = floor.Tables.count + 1
+        Table.tableCount += 1
+        Id = Table.tableCount
         Server = ""
     }
     

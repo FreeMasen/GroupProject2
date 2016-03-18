@@ -91,6 +91,23 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView  {
+        case drinkPickerView:
+            return menu.Drinks[row].Name
+        case appPickerView:
+            return menu.Apps[row].Name
+        case mainCoursePickerView:
+            return menu.Entre[row].Name
+        case dessert:
+            return menu.Dessert[row].Name
+        default:
+            return ""
+        }
+
+    }
+    
+    
     @IBAction func addDesert(sender: AnyObject) {
         if selectedDessert != -1 {
             order?.Items.append(menu.Dessert[selectedApp])

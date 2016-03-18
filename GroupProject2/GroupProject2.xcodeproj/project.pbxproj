@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6CBAC496001AD68035905143 /* Pods_GroupProject2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE41600B039E8EAEE505EDD /* Pods_GroupProject2.framework */; };
 		811329701C99CDAA0009610A /* ServingFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8113296F1C99CDAA0009610A /* ServingFloor.swift */; };
-		815C52871C86926200054ACB /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C52861C86926200054ACB /* Server.swift */; };
 		815C52891C869B9900054ACB /* SQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C52881C869B9900054ACB /* SQLHelper.swift */; };
 		818283541C7D3ED5002ED116 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818283531C7D3ED5002ED116 /* Menu.swift */; };
 		818283561C7D3EDA002ED116 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818283551C7D3EDA002ED116 /* Table.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		5EE41600B039E8EAEE505EDD /* Pods_GroupProject2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8113296F1C99CDAA0009610A /* ServingFloor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingFloor.swift; sourceTree = "<group>"; };
-		815C52861C86926200054ACB /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		815C52881C869B9900054ACB /* SQLHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLHelper.swift; sourceTree = "<group>"; };
 		818283531C7D3ED5002ED116 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		818283551C7D3EDA002ED116 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				81D17CE11C7D3D16004872EA /* LaunchScreen.storyboard */,
 				818283531C7D3ED5002ED116 /* Menu.swift */,
 				818283591C7D3EF0002ED116 /* Order.swift */,
-				815C52861C86926200054ACB /* Server.swift */,
 				8113296F1C99CDAA0009610A /* ServingFloor.swift */,
 				815C52881C869B9900054ACB /* SQLHelper.swift */,
 				818283551C7D3EDA002ED116 /* Table.swift */,
@@ -290,7 +287,6 @@
 				818283561C7D3EDA002ED116 /* Table.swift in Sources */,
 				81D17CD91C7D3D16004872EA /* AppDelegate.swift in Sources */,
 				811329701C99CDAA0009610A /* ServingFloor.swift in Sources */,
-				815C52871C86926200054ACB /* Server.swift in Sources */,
 				C9FF3A331C812E43005F7FD8 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
