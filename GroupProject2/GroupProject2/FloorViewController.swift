@@ -58,6 +58,8 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         saveTableCount(floor.Tables.count)
     }
     
+
+    
     // Returns the number of tables that were saved in the user defaults.
     func initialTableCount() -> Int {
         let savedCount = NSUserDefaults.standardUserDefaults().objectForKey(userDefaultsNumberOfTablesKey) as? Int

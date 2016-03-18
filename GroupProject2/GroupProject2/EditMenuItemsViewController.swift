@@ -24,7 +24,7 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var menuTypePickerView: UIPickerView!
     
-    let menuTypes = ["Apps", "Entres", "Deserts", "Drinks"]
+    let menuTypes = ["Apps", "Entre", "Dessert", "Drinks"]
     var currentMenuType = "Apps"
     var itemName = String()
     var itemPrice = Double()
@@ -111,8 +111,6 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -126,27 +124,15 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         default:
             return 0
         }
-
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Apps"
-        case 1:
-            return "Entres"
-        case 2:
-            return "Desserts"
-        case 3:
-            return "Drinks"
-        default:
-            return nil
-        }
+        return menuTypes[section]
         
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return menuTypes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
