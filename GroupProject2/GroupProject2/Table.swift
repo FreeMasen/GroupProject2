@@ -10,13 +10,19 @@ import Foundation
 
 class Table {
     let Id: Int
+    static var idCounter = 1
     var Orders = [Order]()
     static var tableCount = 0
     var Server: String
     
     init() {
+<<<<<<< HEAD
         Table.tableCount += 1
         Id = Table.tableCount
+=======
+        Id = Table.idCounter
+        Table.idCounter += 1
+>>>>>>> master
         Server = ""
     }
     
