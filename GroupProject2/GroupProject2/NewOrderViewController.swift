@@ -17,23 +17,39 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var dessert: UIPickerView!
     @IBOutlet weak var addOrderButton: UIButton!
     
-    var selectedApp = -1
-    var selectedDrink = -1
-    var selectedEntre = -1
-    var selectedDessert = -1
+    var selectedApp = 0
+    var selectedDrink = 0
+    var selectedEntre = 0
+    var selectedDessert = 0
     
     
     var order: Order?
     var table: Table?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                // Do any additional setup after loading the view.
+        let cancel = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("cancel"))
+        self.navigationItem.leftBarButtonItem = cancel
+        let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
+        self.navigationItem.rightBarButtonItem = plus
+        
+        drinkPickerView.reloadAllComponents()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -55,21 +71,17 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    func cancel() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
    
-    @IBAction func addOrderToTable(sender: UIButton) {
+    func addOrderToTable() {
         if let t = table , o = order {
             t.Orders.append(o)
         }
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        if let items = order?.Items {
-            return items.count
-        }
-        return 0
-    }
-    
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -90,6 +102,23 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
             return 0
         }
     }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView  {
+        case drinkPickerView:
+            return menu.Drinks[row].Name
+        case appPickerView:
+            return menu.Apps[row].Name
+        case mainCoursePickerView:
+            return menu.Entre[row].Name
+        case dessert:
+            return menu.Dessert[row].Name
+        default:
+            return ""
+        }
+
+    }
+    
     
     @IBAction func addDesert(sender: AnyObject) {
         if selectedDessert != -1 {

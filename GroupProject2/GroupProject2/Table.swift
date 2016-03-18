@@ -12,6 +12,7 @@ class Table {
     let Id: Int
     static var idCounter = 1
     var Orders = [Order]()
+    static var tableCount = 0
     var Server: String
     
     init() {
