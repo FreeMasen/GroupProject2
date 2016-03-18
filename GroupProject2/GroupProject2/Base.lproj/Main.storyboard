@@ -71,7 +71,6 @@
                                         <size key="customSize" width="80" height="80"/>
                                         <connections>
                                             <outlet property="tableLabel" destination="f5j-5Q-vgJ" id="6i3-sw-Xch"/>
-                                            <segue destination="Mk8-xK-9zn" kind="showDetail" identifier="order" action="showViewController:sender:" id="suB-uD-nBE"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -173,7 +172,6 @@
                                     <outlet property="delegate" destination="R1s-8Z-0qu" id="dDs-Ir-8t7"/>
                                 </connections>
                             </pickerView>
-
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-lD-FDN">
                                 <rect key="frame" x="123" y="337" width="363" height="67"/>
                                 <color key="backgroundColor" white="0.84836409400000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,7 +196,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Main Course" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJw-mF-lvP">
                                 <rect key="frame" x="256" y="308" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -212,7 +209,7 @@
                                     <action selector="addMain:" destination="R1s-8Z-0qu" eventType="touchUpInside" id="DBb-XA-Mh7"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bh-ce4">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bh-ce4">
                                 <rect key="frame" x="123" y="441" width="363" height="67"/>
                                 <color key="backgroundColor" white="0.84836409400000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -230,7 +227,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebH-JM-3Cz">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebH-JM-3Cz">
                                 <rect key="frame" x="500" y="463" width="22" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -860,7 +857,7 @@
                                     <action selector="getPartySize:" destination="BzE-gy-Tkd" eventType="editingDidEnd" id="YMX-ym-s83"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cym-TD-KSW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cym-TD-KSW">
                                 <rect key="frame" x="20" y="195" width="560" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
