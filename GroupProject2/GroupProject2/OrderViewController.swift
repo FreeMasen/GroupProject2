@@ -25,12 +25,23 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableTextField.text = "\(table!.Id)"
             partySizeTextField.text = "\(table!.Orders.count)"
         }
+        let backButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("back"))
+        self.navigationItem.rightBarButtonItem = backButton
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func back() {
+        if let nav = self.navigationController {
+        nav.popViewControllerAnimated(true)
+            self.dismissViewControllerAnimated(true) {n in
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
