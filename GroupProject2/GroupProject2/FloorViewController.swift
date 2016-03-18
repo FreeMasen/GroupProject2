@@ -13,15 +13,16 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var floorCollectionView: UICollectionView!
     
     @IBOutlet weak var addTableButton: UIButton!
-    let userDefaultsNumberOfTablesKey = "defaultNumberOfTables"
-    var selectedTable = -1
+    var selectedTable = 0 {
+        didSet {
+            performSegueWithIdentifier("order", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        for _ in 0..<(initialTableCount()) {
-            addTableToCollection("Sender")
-        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,21 +30,28 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedTable = indexPath.row
+
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return floor.Tables.count
     }
     
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.floorCollectionView.dequeueReusableCellWithReuseIdentifier("collection", forIndexPath: indexPath) as! TableCollectionItem
             cell.tableLabel.text = "Table \(floor.Tables[indexPath.row].Id)"
-        
+            cell.userInteractionEnabled = true
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedTable = indexPath.row
-        performSegueWithIdentifier("order", sender: self)
-    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navView = segue.destinationViewController as? UINavigationController {
@@ -55,28 +63,15 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBAction func addTableToCollection(sender: AnyObject) {
         floor.Tables.append(Table())
         floorCollectionView.reloadData()
-        saveTableCount(floor.Tables.count)
     }
     
 
     
     // Returns the number of tables that were saved in the user defaults.
-    func initialTableCount() -> Int {
-        let savedCount = NSUserDefaults.standardUserDefaults().objectForKey(userDefaultsNumberOfTablesKey) as? Int
-        if let count = savedCount  {
-            return count
-        } else {
-            return 0
-        }
-    }
+
     
     // Saves the number of tables in the user defaults.
-    func saveTableCount(count: Int) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(count, forKey: userDefaultsNumberOfTablesKey)
-        defaults.synchronize()
-    }
-
+    
     /*
     // MARK: - Navigation
 

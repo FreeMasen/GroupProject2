@@ -13,10 +13,31 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        for _ in 0..<(initialTableCount()) {
+            floor.Tables.append(Table())
+        }
         menu = SQLhelper.GetMenu()
     }
     
+    deinit {
+        saveTableCount(floor.Tables.count)
+    }
+    
+    func initialTableCount() -> Int {
+        let savedCount = NSUserDefaults.standardUserDefaults().objectForKey("defaultNumberOfTables") as? Int
+        if let count = savedCount  {
+            return count
+        } else {
+            return 0
+        }
+    }
+    
+    func saveTableCount(count: Int) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(count, forKey: "defaultNumberOfTables")
+        defaults.synchronize()
+    }
+
     /*
     // MARK: - Navigation
 
