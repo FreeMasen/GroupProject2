@@ -59,6 +59,14 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let newView = segue.destinationViewController as? NewOrderViewController {
+            newView.table = self.table
+            let id = (table?.Orders.count)!+1
+            newView.order = Order(orderId: id, items: [Item]())
+        }
+    }
+    
     @IBAction func getTable(sender: UITextField) {
         
     }

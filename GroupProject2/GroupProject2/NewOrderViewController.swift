@@ -57,12 +57,15 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
    
     @IBAction func addOrderToTable(sender: UIButton) {
-        
+        if let t = table , o = order {
+            t.Orders.append(o)
+        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         if let items = order?.Items {
-            return (items.count)
+            return items.count
         }
         return 0
     }
