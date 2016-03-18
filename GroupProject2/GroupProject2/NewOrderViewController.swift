@@ -14,11 +14,17 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var appPickerView: UIPickerView!
     @IBOutlet weak var mainCoursePickerView: UIPickerView!
     
+    @IBOutlet weak var dessert: UIPickerView!
     @IBOutlet weak var addOrderButton: UIButton!
     
-    var drinkList = []
-    var appList = []
-    var mainCourseList = []
+    var selectedApp = -1
+    var selectedDrink = -1
+    var selectedEntre = -1
+    var selectedDessert = -1
+    
+    
+    var order: Order?
+    var table: Table?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +36,35 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView  {
+        case drinkPickerView:
+            selectedDrink = row
+            break
+        case appPickerView:
+            selectedApp = row
+            break
+        case mainCoursePickerView:
+            selectedEntre = row
+            break
+        case dessert:
+            selectedDessert = row
+            break
+        default:
+            break
+        }
+    }
+    
    
     @IBAction func addOrderToTable(sender: UIButton) {
         
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+        if let items = order?.Items {
+            return (items.count)
+        }
+        return 0
     }
     
     
@@ -44,33 +72,43 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView == drinkPickerView {
-                return drinkList.count
+                return menu.Drinks.count
         
         } else if pickerView == appPickerView {
-            return appList.count
+            return menu.Apps.count
         
         } else if pickerView == mainCoursePickerView {
-            return mainCourseList.count
+            return menu.Entre.count
         
-        } else {
+        } else  if pickerView == dessert {
+            return menu.Dessert.count
+        }
+        else {
             return 0
         }
     }
     
+    @IBAction func addDesert(sender: AnyObject) {
+        if selectedDessert != -1 {
+            order?.Items.append(menu.Dessert[selectedApp])
+        }
+    }
+    
+    @IBAction func addDrinks(sender: AnyObject) {
+        if selectedDrink != -1 {
+            order?.Items.append(menu.Drinks[selectedDrink])
+        }
+    }
     //pull drinks from the database
-    func addDrinksToDrinkList() {
-            
+    @IBAction func addMain(sender: AnyObject) {
+        if selectedEntre != -1 {
+            order?.Items.append(menu.Entre[selectedDrink])
+        }
     }
     
-    //pull apps from the database
-    func addAppsToAppList() {
-    
-    
-    }
-    
-    // pull main courses from the database
-    func addMainCourseToMainCourseList() {
-
-    
+    @IBAction func addApps(sender: AnyObject) {
+        if selectedApp != -1 {
+            order?.Items.append(menu.Apps[selectedApp])
+        }
     }
 }
