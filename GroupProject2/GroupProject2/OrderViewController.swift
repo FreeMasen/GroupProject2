@@ -26,14 +26,8 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             partySizeTextField.text = "\(table!.Orders.count)"
             serverTextField.text = "\(table!.Server)"
         }
-<<<<<<< HEAD
-        let backButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("back"))
-        self.navigationItem.rightBarButtonItem = backButton
-        
-=======
         let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("back"))
         self.navigationItem.rightBarButtonItem = back
->>>>>>> RFM
         // Do any additional setup after loading the view.
     }
 
@@ -43,14 +37,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func back() {
-<<<<<<< HEAD
-        if let nav = self.navigationController {
-        nav.popViewControllerAnimated(true)
-            self.dismissViewControllerAnimated(true) {n in
-            }
-=======
         self.dismissViewControllerAnimated(true) { n in
->>>>>>> RFM
         }
     }
     
