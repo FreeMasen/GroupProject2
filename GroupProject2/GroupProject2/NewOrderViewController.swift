@@ -17,19 +17,15 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var dessert: UIPickerView!
     @IBOutlet weak var addOrderButton: UIButton!
     
-    var selectedApp = -1
-    var selectedDrink = -1
-    var selectedEntre = -1
-    var selectedDessert = -1
+    var selectedApp = 0
+    var selectedDrink = 0
+    var selectedEntre = 0
+    var selectedDessert = 0
     
     
     var order: Order?
     var table: Table?
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +33,23 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         self.navigationItem.leftBarButtonItem = cancel
         let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
         self.navigationItem.rightBarButtonItem = plus
-
         
+        drinkPickerView.reloadAllComponents()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -77,14 +82,6 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        if let items = order?.Items {
-            return items.count
-        }
-        return 0
-    }
-    
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

@@ -30,6 +30,11 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationItem.rightBarButtonItem = back
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        orderTableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,12 +54,11 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.orderTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MenuItemCell
+        let cell = UITableViewCell(style: .Value1, reuseIdentifier: "cell")
 
         if let orders = table?.Orders {
-            cell.item.text = "Table: \(orders[indexPath.row].OrderId)"
-            cell.desc.text = "Items: \(orders[indexPath.row].Items.count)"
-            cell.price.text = "Totals \(orders[indexPath.row].Total)"
+            cell.textLabel?.text = "Items: \(orders[indexPath.row].Items.count)"
+            cell.detailTextLabel?.text = String(format: "Total: $%.2f", orders[indexPath.row].Total)
         }
         return cell
     }
