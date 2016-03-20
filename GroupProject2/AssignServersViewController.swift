@@ -8,8 +8,13 @@
 
 import UIKit
 
-class AssignServersViewController: UIViewController {
+class AssignServersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var serverName: UITextField!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var selectedCells = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +26,60 @@ class AssignServersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("tableItem", forIndexPath: indexPath) as? TableCollectionItem{
+            let id = floor.Tables[indexPath.row]
+            cell.tableLabel.text = "Table \(id)"
+            return cell
+        }
+        return UICollectionViewCell()
     }
-    */
-
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            if cell.highlighted {
+                cell.highlighted = false
+                cell.backgroundColor = UIColor.brownColor()
+                removeSelection(indexPath.row)
+            } else {
+                cell.highlighted = true
+                addSelectionToArray(indexPath.row)
+                cell.backgroundColor = UIColor.greenColor()
+            }
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return floor.Tables.count
+    }
+    @IBAction func addButtonClick(sender: AnyObject) {
+        addServerToTable()
+    }
+    
+    func addSelectionToArray(selection: Int) {
+        selectedCells.append(selection)
+    }
+    
+    func removeSelection(selection: Int) {
+        var itter = 0
+        var index: Int?
+        for i in selectedCells {
+            if i == selection {
+                index = itter
+            }
+            itter += 1
+        }
+        if index != nil {
+            selectedCells.removeAtIndex(index!)
+        }
+    }
+    
+    func addServerToTable() {
+        if serverName.text != "" {
+            for t in selectedCells {
+                floor.Tables[t].Server = serverName.text!
+            }
+        }
+    }
 }

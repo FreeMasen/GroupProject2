@@ -33,6 +33,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        partySizeTextField.text = "\(table!.Orders.count)"
         orderTableView.reloadData()
     }
 

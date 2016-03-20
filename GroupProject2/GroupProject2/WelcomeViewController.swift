@@ -10,6 +10,9 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var two: UILabel!
+    @IBOutlet weak var project: UILabel!
+    @IBOutlet weak var group: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,7 +20,14 @@ class WelcomeViewController: UIViewController {
             floor.Tables.append(Table())
         }
         menu = SQLhelper.GetMenu()
+        UIView.animateWithDuration(3.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { n in
+                self.two.center  = CGPoint(x: 315, y: 215)
+            }, completion: { n in
+            
+        })
     }
+    
+    
     
     deinit {
         saveTableCount(floor.Tables.count)
