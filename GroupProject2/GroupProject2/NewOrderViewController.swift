@@ -8,8 +8,9 @@
 
 import UIKit
 
-class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var drinkPickerView: UIPickerView!
     @IBOutlet weak var appPickerView: UIPickerView!
     @IBOutlet weak var mainCoursePickerView: UIPickerView!
@@ -29,7 +30,7 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cancel = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("cancel"))
+        let cancel = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("cancel"))
         self.navigationItem.leftBarButtonItem = cancel
         let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
         self.navigationItem.rightBarButtonItem = plus
@@ -123,23 +124,55 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if selectedDessert != -1 {
             order?.Items.append(menu.Dessert[selectedApp])
         }
+        tableView.reloadData()
     }
     
     @IBAction func addDrinks(sender: AnyObject) {
         if selectedDrink != -1 {
             order?.Items.append(menu.Drinks[selectedDrink])
         }
+        tableView.reloadData()
     }
     //pull drinks from the database
     @IBAction func addMain(sender: AnyObject) {
         if selectedEntre != -1 {
             order?.Items.append(menu.Entre[selectedDrink])
         }
+        tableView.reloadData()
     }
     
     @IBAction func addApps(sender: AnyObject) {
         if selectedApp != -1 {
             order?.Items.append(menu.Apps[selectedApp])
         }
+        tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let i = order?.Items.count {
+            return i
+        }
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        if let o = order {
+            cell.textLabel?.text = o.Items[indexPath.row].Name
+            let price = o.Items[indexPath.row].Price
+            cell.detailTextLabel?.text = String(format: "$%.2f", price)
+        }
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            order!.removeItemWithId(order!.Items[indexPath.row].Id)
+        }
+        tableView.reloadData()
     }
 }

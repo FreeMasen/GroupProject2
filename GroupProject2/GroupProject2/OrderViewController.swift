@@ -31,7 +31,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             partySizeTextField.text = "\(table!.Orders.count)"
             serverTextField.text = "\(table!.Server)"
         }
-        let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("back"))
+        let back = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("back"))
         self.navigationItem.rightBarButtonItem = back
         // Do any additional setup after loading the view.
     }

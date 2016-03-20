@@ -20,6 +20,11 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         tableview.reloadData()
+        if order > -1 {
+            subtotal.text = String(format: "$%.2f", table!.Orders[order].SubTotal)
+            tax.text = String(format: "$%.2f", table!.Orders[order].Tax)
+            total.text = String(format: "$%.2f", table!.Orders[order].Total)
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -29,7 +34,7 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let o = table?.Orders[order] {
             let cell = UITableViewCell(style: .Value2, reuseIdentifier: "cell")
-            let price = String(format: "$%2d", o.Items[indexPath.row].Price)
+            let price = String(format: "$%.2f", o.Items[indexPath.row].Price)
             let name = o.Items[indexPath.row].Name
             cell.detailTextLabel?.text = price
             cell.textLabel?.text = name
@@ -40,6 +45,11 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    @IBAction func checkout(sender: AnyObject) {
+        if order > -1 {
+            floor.removeTable(order)
+        }
     }
     
 }
