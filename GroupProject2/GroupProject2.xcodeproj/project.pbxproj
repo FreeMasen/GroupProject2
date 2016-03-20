@@ -10,6 +10,7 @@
 		6CBAC496001AD68035905143 /* Pods_GroupProject2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE41600B039E8EAEE505EDD /* Pods_GroupProject2.framework */; };
 		811329701C99CDAA0009610A /* ServingFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8113296F1C99CDAA0009610A /* ServingFloor.swift */; };
 		815C52891C869B9900054ACB /* SQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C52881C869B9900054ACB /* SQLHelper.swift */; };
+		816C7C1B1C9F3A1000EED529 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C7C1A1C9F3A1000EED529 /* CheckoutViewController.swift */; };
 		818283541C7D3ED5002ED116 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818283531C7D3ED5002ED116 /* Menu.swift */; };
 		818283561C7D3EDA002ED116 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818283551C7D3EDA002ED116 /* Table.swift */; };
 		818283581C7D3EEA002ED116 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818283571C7D3EEA002ED116 /* Item.swift */; };
@@ -36,6 +37,7 @@
 		5EE41600B039E8EAEE505EDD /* Pods_GroupProject2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8113296F1C99CDAA0009610A /* ServingFloor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingFloor.swift; sourceTree = "<group>"; };
 		815C52881C869B9900054ACB /* SQLHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLHelper.swift; sourceTree = "<group>"; };
+		816C7C1A1C9F3A1000EED529 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		818283531C7D3ED5002ED116 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		818283551C7D3EDA002ED116 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		818283571C7D3EEA002ED116 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				C9D7EBF61C866C1400A58490 /* TableCollectionItem.swift */,
 				81D17CDA1C7D3D16004872EA /* ViewController.swift */,
 				C9FF3A321C812E43005F7FD8 /* WelcomeViewController.swift */,
+				816C7C1A1C9F3A1000EED529 /* CheckoutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				815C52891C869B9900054ACB /* SQLHelper.swift in Sources */,
 				C9FF3A3E1C813AF6005F7FD8 /* MenuItemCell.swift in Sources */,
 				C9FF3A391C812E93005F7FD8 /* FloorViewController.swift in Sources */,
+				816C7C1B1C9F3A1000EED529 /* CheckoutViewController.swift in Sources */,
 				C9EEFAD01C85559600CEED53 /* EditMenuItemsViewController.swift in Sources */,
 				C9EEFAD21C8555AF00CEED53 /* AssignServersViewController.swift in Sources */,
 				C9FF3A371C812E81005F7FD8 /* MenuViewController.swift in Sources */,

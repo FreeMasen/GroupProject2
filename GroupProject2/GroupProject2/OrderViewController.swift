@@ -18,6 +18,11 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var serverTextField: UITextField!
     
     var table: Table?
+    var selectedOrder: Int = -1 {
+        didSet {
+            performSegueWithIdentifier("checkout", sender: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +63,14 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = UITableViewCell(style: .Value1, reuseIdentifier: "cell")
 
         if let orders = table?.Orders {
-            cell.textLabel?.text = "Items: \(orders[indexPath.row].Items.count)"
+            cell.textLabel?.text = "\(orders[indexPath.row].OrderId): \(orders[indexPath.row].Items.count) items"
             cell.detailTextLabel?.text = String(format: "Total: $%.2f", orders[indexPath.row].Total)
         }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedOrder = indexPath.row
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -69,6 +78,9 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             newView.table = self.table
             let id = (table?.Orders.count)!+1
             newView.order = Order(orderId: id, items: [Item]())
+        } else if let newView = segue.destinationViewController as? CheckoutViewController {
+            newView.table = self.table
+            newView.order = selectedOrder
         }
     }
     

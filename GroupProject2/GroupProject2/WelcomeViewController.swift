@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
                 UIView.animateWithDuration(1.0, delay: 1.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: { _ in
                     
                     }, completion: { _ in
-                    UIView.animateWithDuration(3.0, delay: 1.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { _ in
+                    UIView.animateWithDuration(1.0, delay: 1.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { _ in
                             
                             self.two.center = CGPoint(x: self.cenX!, y: self.cenY!)
                             

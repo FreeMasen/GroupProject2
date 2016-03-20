@@ -119,7 +119,6 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     }
     
-    
     @IBAction func addDesert(sender: AnyObject) {
         if selectedDessert != -1 {
             order?.Items.append(menu.Dessert[selectedApp])
