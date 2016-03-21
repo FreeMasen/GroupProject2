@@ -30,6 +30,7 @@ class AssignServersViewController: UIViewController, UICollectionViewDataSource,
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("tableItem", forIndexPath: indexPath) as? TableCollectionItem{
             let id = floor.Tables[indexPath.row]
             cell.tableLabel.text = "Table \(id)"
+            cell.backgroundColor = UIColor.brownColor()
             return cell
         }
         return UICollectionViewCell()
@@ -79,7 +80,11 @@ class AssignServersViewController: UIViewController, UICollectionViewDataSource,
         if serverName.text != "" {
             for t in selectedCells {
                 floor.Tables[t].Server = serverName.text!
+                
             }
+            serverName.text = ""
+            selectedCells = [Int]()
+            collectionView.reloadData()
         }
     }
 }

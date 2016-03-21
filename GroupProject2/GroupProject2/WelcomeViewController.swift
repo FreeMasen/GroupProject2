@@ -10,9 +10,29 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var two: UILabel!
-    @IBOutlet weak var project: UILabel!
-    @IBOutlet weak var group: UILabel!
+    var two: UILabel!
+    
+    var loaded: Bool? {
+        didSet {
+            if loaded != nil {
+                UIView.animateWithDuration(1.0, delay: 1.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: { _ in
+                    
+                    }, completion: { _ in
+                    UIView.animateWithDuration(1.0, delay: 1.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { _ in
+                            
+                            self.two.center = CGPoint(x: self.cenX!, y: self.cenY!)
+                            
+                            }, completion: { _ in
+                                self.two.textColor = UIColor.redColor()
+                    })
+                })
+
+            }
+        }
+    }
+    var cenY: CGFloat?
+    var cenX: CGFloat?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,11 +40,16 @@ class WelcomeViewController: UIViewController {
             floor.Tables.append(Table())
         }
         menu = SQLhelper.GetMenu()
-        UIView.animateWithDuration(3.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { n in
-                self.two.center  = CGPoint(x: 315, y: 215)
-            }, completion: { n in
-            
-        })
+        two = UILabel()
+        two.text = "2"
+        two.font = UIFont.systemFontOfSize(200)
+        two.sizeToFit()
+        cenY = view.center.y
+        cenX = view.center.x
+        two.center = CGPoint(x: 1000 , y: cenY!)
+        two.textColor = UIColor.whiteColor()
+        view.addSubview(two)
+        loaded = true
     }
     
     
@@ -48,14 +73,6 @@ class WelcomeViewController: UIViewController {
         defaults.synchronize()
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

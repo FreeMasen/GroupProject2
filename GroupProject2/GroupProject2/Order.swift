@@ -20,10 +20,12 @@ class Order {
     var Total: Double {
         return (SubTotal + Tax)
     }
+    static var orderIndex = 1
     
-    init(orderId: Int, items: [Item]) {
-        OrderId = orderId
+    init(items: [Item]) {
+        OrderId = Order.orderIndex
         Items = items
+        Order.orderIndex += 1
     }
 
     func addItem(item: Item) {
