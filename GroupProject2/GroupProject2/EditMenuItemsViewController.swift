@@ -44,25 +44,35 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     //**USER INPUT**
     @IBAction func getItem(sender: UITextField) {
-        if let textField = itemTextField.text{
-            itemName = textField
-        }
+//        if let textField = itemTextField.text{
+//            itemName = textField
+//        }
     }
     
     @IBAction func getPrice(sender: UITextField) {
-        if let textField = Double(priceTextField.text!) {
-            itemPrice = textField
-        }
+//        if let textField = Double(priceTextField.text!) {
+//            itemPrice = textField
+//        }
     }
     
     @IBAction func getDesc(sender: UITextField) {
-        if let textField = descTextField.text {
-            itemDescription = textField
-        }
+//        if let textField = descTextField.text {
+//            itemDescription = textField
+//        }
     }
     
     
     @IBAction func addNewMenuItem(sender: UISwitch) {
+        if let textField = itemTextField.text{
+            itemName = textField
+        }
+        if let textField = Double(priceTextField.text!) {
+            itemPrice = textField
+        }
+        if let textField = descTextField.text {
+            itemDescription = textField
+        }
+        
         let newItem = Item(id: 99999, name: itemName, price: itemPrice, desc: itemDescription, menues: menuTimes, type: currentMenuType)
         SQLhelper.insertItem(newItem)
         itemTextField.text = nil
