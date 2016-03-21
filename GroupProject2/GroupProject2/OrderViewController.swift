@@ -20,7 +20,9 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var table: Table?
     var selectedOrder: Int = -1 {
         didSet {
-            performSegueWithIdentifier("checkout", sender: nil)
+            if orderTableView.editing == false {
+                performSegueWithIdentifier("checkout", sender: "new")
+            }
         }
     }
 
@@ -75,9 +77,14 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let newView = segue.destinationViewController as? NewOrderViewController {
-            newView.table = self.table
-            let id = (table?.Orders.count)!+1
-            newView.order = Order(orderId: id, items: [Item]())
+            if sender != nil {
+                newView.table = self.table
+                newView.order = Order(items: [Item]())
+            } else {
+                newView.table = self.table
+                newView.order = table?.Orders[selectedOrder]
+                newView.newOrder = false
+            }
         } else if let newView = segue.destinationViewController as? CheckoutViewController {
             newView.table = self.table
             newView.order = selectedOrder
@@ -96,17 +103,31 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
-    */
-
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            table!.DeleteOrderWithId(indexPath.row)
+        }
+        tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .Normal, title: "edit", handler: { action in
+            self.selectedOrder = indexPath.row
+            self.performSegueWithIdentifier("newOrder", sender: nil)
+            self.orderTableView.reloadData()
+        })
+        edit.backgroundColor = UIColor.greenColor()
+        let delete = UITableViewRowAction(style: .Normal, title: "delete", handler: { action in
+            self.selectedOrder = indexPath.row
+            self.table!.DeleteOrderWithId((self.table?.Orders[indexPath.row].OrderId)!)
+            self.orderTableView.reloadData()
+            })
+        delete.backgroundColor = UIColor.redColor()
+        return [edit, delete]
+    }
+    
 }

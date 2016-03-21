@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FloorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var floorCollectionView: UICollectionView!
     
@@ -22,9 +22,28 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let longPress = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        longPress.minimumPressDuration = 0.5
+        longPress.delegate = self
+        longPress.delaysTouchesBegan = true
+        self.floorCollectionView.addGestureRecognizer(longPress)
+    }
+    
+    func longPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if (gestureRecognizer.state != UIGestureRecognizerState.Ended){
+            return
+        }
+        
+        let p = gestureRecognizer.locationInView(self.floorCollectionView)
+        
+        if let indexPath : NSIndexPath = (self.floorCollectionView?.indexPathForItemAtPoint(p))!{
+            let tableID = floor.Tables[indexPath.row].Id
+            floor.removeTable(tableID)
+            self.floorCollectionView.reloadData()
+        }
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,21 +84,6 @@ class FloorViewController: UIViewController, UICollectionViewDelegate, UICollect
         floorCollectionView.reloadData()
     }
     
-
     
-    // Returns the number of tables that were saved in the user defaults.
-
     
-    // Saves the number of tables in the user defaults.
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

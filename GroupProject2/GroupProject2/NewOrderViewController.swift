@@ -23,6 +23,8 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var selectedEntre = 0
     var selectedDessert = 0
     
+    var newOrder = true
+    
     
     var order: Order?
     var table: Table?
@@ -32,10 +34,10 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
         let cancel = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("cancel"))
         self.navigationItem.leftBarButtonItem = cancel
-        let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
-        self.navigationItem.rightBarButtonItem = plus
-        
-        drinkPickerView.reloadAllComponents()
+        if newOrder {
+            let plus = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addOrderToTable"))
+            self.navigationItem.rightBarButtonItem = plus
+        }
         // Do any additional setup after loading the view.
     }
     

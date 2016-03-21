@@ -30,6 +30,7 @@ class AssignServersViewController: UIViewController, UICollectionViewDataSource,
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("tableItem", forIndexPath: indexPath) as? TableCollectionItem{
             let id = floor.Tables[indexPath.row]
             cell.tableLabel.text = "Table \(id)"
+            cell.backgroundColor = UIColor.brownColor()
             return cell
         }
         return UICollectionViewCell()

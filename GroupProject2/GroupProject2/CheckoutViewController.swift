@@ -8,28 +8,24 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CheckoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tax: UILabel!
     @IBOutlet weak var subtotal: UILabel!
     
     var order = -1
-    var table: Table?
+    var table: Table!
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        subtotal.text = String(format: "$%.2f", table.Orders[order].SubTotal)
+        tax.text = String(format: "$%.2f", table.Orders[order].Tax)
+        total.text = String(format: "$%.2f", table.Orders[order].Total)
         tableview.reloadData()
-        if order > -1 {
-            subtotal.text = String(format: "$%.2f", table!.Orders[order].SubTotal)
-            tax.text = String(format: "$%.2f", table!.Orders[order].Tax)
-            total.text = String(format: "$%.2f", table!.Orders[order].Total)
-        }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return table!.Orders[order].Items.count
-    }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let o = table?.Orders[order] {
@@ -44,12 +40,16 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if order != -1 {
+            return table.Orders[order].Items.count
+        }
+        return 0
     }
     @IBAction func checkout(sender: AnyObject) {
         if order > -1 {
-            floor.removeTable(order)
+            table?.DeleteOrderWithId((table?.Orders[order].OrderId)!)
         }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }
