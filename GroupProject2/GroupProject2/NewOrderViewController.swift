@@ -124,7 +124,7 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func addDesert(sender: AnyObject) {
         if selectedDessert != -1 {
-            order?.Items.append(menu.Dessert[selectedApp])
+            order?.Items.append(menu.Dessert[selectedDessert])
         }
         tableView.reloadData()
     }
@@ -138,7 +138,7 @@ class NewOrderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //pull drinks from the database
     @IBAction func addMain(sender: AnyObject) {
         if selectedEntre != -1 {
-            order?.Items.append(menu.Entre[selectedDrink])
+            order?.Items.append(menu.Entre[selectedEntre])
         }
         tableView.reloadData()
     }
