@@ -24,6 +24,10 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var menuTypePickerView: UIPickerView!
     
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    
     let menuTypes = ["Apps", "Entre", "Dessert", "Drinks"]
     var currentMenuType = "Apps"
     var itemName = String()
@@ -194,7 +198,55 @@ class EditMenuItemsViewController: UIViewController, UITableViewDataSource, UITa
         currentMenuType = menuTypes[row]
     }
 
+    // Designates the actions for the row when the user swipes left on that row.
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .Normal, title: "edit", handler: { action in
+            // Find the menu Item we are working with.
+            let menus = [menu.Apps, menu.Entre, menu.Dessert, menu.Drinks]
+            let selectedMenuItem = menus[indexPath.section][indexPath.row]
+            
+            self.populateFormWithItem(selectedItem: selectedMenuItem)
+            
+            // Show the Save and Cancel buttons. Hide the Add button.
+            self.saveButton.enabled = true
+            self.saveButton.alpha = 1.0
+            self.cancelButton.enabled = true
+            self.cancelButton.alpha = 1.0
+            self.addButton.enabled = false
+            self.addButton.alpha = 0.0
+        })
+        edit.backgroundColor = UIColor.greenColor()
+        let delete = UITableViewRowAction(style: .Normal, title: "delete", handler: { action in
+            // TODO: Make this do stuff.
+        })
+        delete.backgroundColor = UIColor.redColor()
+        return [edit, delete]
+    }
     
+    // Populate the form with the Item information.
+    private func populateFormWithItem(selectedItem item: Item) {
+        self.itemTextField.text = item.Name
+        self.priceTextField.text = String(item.Price)
+        self.descTextField.text = item.Desc
+        // Loop through all bit flags to find which MenuType the item belongs to.
+        // n correspondes to the index of the array I put the menu type switches in
+        // and the flag (2^n) corresponds to the respective bit flag we need to check.
+        // This is probably a horrible unreadable way to do it...  I should probably
+        // hide this is some funciton so I don't have to look at it.
+        let menuTypeSwitches = [self.dinnerSwitch, self.happyHourSwitch, self.lunchSwitch, self.breakfastSwitch]
+        for n in 0...3 {
+            // Bitshifting to the left n times is equal to 2^n.
+            // I think it looks better than Int(Pow(Float(2), Float(n)))
+            let flag = 1 << n
+            menuTypeSwitches[n].on = Int(item.Menues) & flag == flag
+        }
+        for (index, menuType) in menuTypes.enumerate() {
+            if item.Type == menuType {
+                menuTypePickerView.selectRow(index, inComponent: 0, animated: false)
+                pickerView(menuTypePickerView, didSelectRow: index, inComponent: 0)
+            }
+        }
+    }
     
     /*
     // MARK: - Navigation
