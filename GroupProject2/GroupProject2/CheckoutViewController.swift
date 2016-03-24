@@ -45,6 +45,7 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         return 0
     }
+    
     @IBAction func checkout(sender: AnyObject) {
         if order > -1 {
             table?.DeleteOrderWithId((table?.Orders[order].OrderId)!)
